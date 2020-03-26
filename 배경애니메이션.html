@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+
+    <title>배경 애니메이션</title>
+
+    <script>
+        var n = 0;
+        var r = 0;
+        function moveBg() {
+            n = n - 10;
+            var bg = document.getElementById("bg");
+            bg.style.backgroundPositionX=n+"px";
+
+            r = r + 10;
+            var gear = document.getElementById("gear");
+            gear.style.transform="rotate("+r+"deg)";
+
+        }
+        function auto() {
+            setInterval("moveBg()",50);
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+        }
+        div {
+            background-image: url(../images/plane/game_bg.jpg);
+            background-repeat: repeat-x;
+            background-position: 0px 0px;
+            height: 640px;
+        }
+        button {
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            left: 500px;
+            top: 500px;
+        }
+        #gear {
+            position: absolute;
+            left: 100px;
+            top: 300px;
+            width: 80px;
+            height: 80px;
+            transform: rotate(0deg);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="bg">
+        <button onclick="auto()">Game Start</button>
+
+        <img src="../images/gear.png" id="gear">
+    </div>
+
+</body>
+
+</html>
